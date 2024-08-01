@@ -30,20 +30,20 @@ console.log('hello')
 // app.use("/product", productRoutes);
 // app.use("/transaction", transactionRoutes);
 
-// /* MONGOOSE SETUP */
-// const PORT = process.env.PORT || 9000;
-// mongoose
-//   .connect(process.env.MONGO_URL, {
-//     useNewUrlParser: true,
-//     useUnifiedTopology: true,
-//   })
-//   .then(async () => {
-//     app.listen(PORT, () => console.log(`Server Port: ${PORT}`));
+/* MONGOOSE SETUP */
+const PORT = process.env.PORT || 9000;
+mongoose
+  .connect(process.env.MONGO_URL, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(async () => {
+    app.listen(PORT, () => console.log(`Server Port: ${PORT}`));
 
 //     /* ADD DATA ONE TIME ONLY OR AS NEEDED */
 //     // await mongoose.connection.db.dropDatabase();
 //     // KPI.insertMany(kpis);
 //     // Product.insertMany(products);
 //     // Transaction.insertMany(transactions);
-//   })
-//   .catch((error) => console.log(`${error} did not connect`));
+  })
+  .catch((error) => console.log(`${error} did not connect`));

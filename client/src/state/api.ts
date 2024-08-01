@@ -1,4 +1,7 @@
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import {
+  createApi,
+  fetchBaseQuery,
+} from "@reduxjs/toolkit/query/react";
 import {
   GetKpisResponse,
   GetProductsResponse,
@@ -6,7 +9,14 @@ import {
 } from "./types";
 
 export const api = createApi({
-  baseQuery: fetchBaseQuery({ baseUrl: import.meta.env.VITE_BASE_URL }),
+  baseQuery: fetchBaseQuery({
+    baseUrl: import.meta.env.VITE_BASE_URL,
+    prepareHeaders: (headers) => {
+      headers.set("Access-Control-Allow-Origin", "*"); // Adiciona o cabeçalho de CORS (mas isso precisa ser configurado no servidor)
+      headers.set("Content-Type", "application/json");
+      return headers;
+    },
+  }),
   reducerPath: "main",
   tagTypes: ["Kpis", "Products", "Transactions"],
   endpoints: (build) => ({

@@ -23,7 +23,7 @@ app.use(morgan("common"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 const corsOptions = {
-  origin: 'https://main--ruben-com-br-desafio-dashboard-node.netlify.app',
+  origin: ['https://main--ruben-com-br-desafio-dashboard-node.netlify.app','http://localhost'],
   optionsSuccessStatus: 200 // para navegadores mais antigos
 };
 app.use(cors(corsOptions));

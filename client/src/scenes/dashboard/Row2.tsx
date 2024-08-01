@@ -133,7 +133,7 @@ const Row2 = () => {
               paddingAngle={2}
               dataKey="value"
             >
-              {pieData.map((index) => (
+              {pieData.map((_entry, index) => (
                 <Cell key={`cell-${index}`} fill={pieColors[index]} />
               ))}
             </Pie>
@@ -178,7 +178,7 @@ const Row2 = () => {
               axisLine={false}
               tickLine={false}
               style={{ fontSize: "10px" }}
-              tickFormatter={(v) => `$${v}`}
+              tickFormatter={(v:any) => `$${v}`}
             />
             <YAxis
               type="number"
@@ -187,10 +187,10 @@ const Row2 = () => {
               axisLine={false}
               tickLine={false}
               style={{ fontSize: "10px" }}
-              tickFormatter={(v) => `$${v}`}
+              tickFormatter={(v:any) => `$${v}`}
             />
             <ZAxis type="number" range={[20]} />
-            <Tooltip formatter={(v) => `$${v}`} />
+            <Tooltip formatter={(v: any) => `$${v}`} />
             <Scatter
               name="Product Expense Ratio"
               data={productExpenseData}

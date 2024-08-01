@@ -14,6 +14,7 @@ export const api = createApi({
     prepareHeaders: (headers) => {
       headers.set("Access-Control-Allow-Origin", "*"); // Adiciona o cabeçalho de CORS (mas isso precisa ser configurado no servidor)
       headers.set("Content-Type", "application/json");
+      headers.set("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
       return headers;
     },
   }),

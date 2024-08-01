@@ -22,8 +22,11 @@ app.use(helmet.crossOriginResourcePolicy({ policy: "cross-origin" }));
 app.use(morgan("common"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cors());
-
+const corsOptions = {
+  origin: 'https://main--ruben-com-br-desafio-dashboard-node.netlify.app',
+  optionsSuccessStatus: 200 // para navegadores mais antigos
+};
+app.use(cors(corsOptions));
 console.log('hello')
 /* ROUTES */
 app.use("/kpi", kpiRoutes);
